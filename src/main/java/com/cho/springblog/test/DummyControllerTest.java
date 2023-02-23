@@ -51,9 +51,10 @@ public class DummyControllerTest {
         return user;
     }
 
-    @GetMapping("/dummy/users")
-    public List<User> list(){
-        return userRepository.findAll();
+    @GetMapping("/auth/dummy/users")
+    public User user(){
+        int id = 1;
+        return userRepository.findById(id).get();
     }
 
     @GetMapping("/dummy/user") // 한 페이지당 2건의 데이터를 받을 것

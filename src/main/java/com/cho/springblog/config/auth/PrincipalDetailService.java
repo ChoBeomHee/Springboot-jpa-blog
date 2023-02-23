@@ -3,6 +3,7 @@ package com.cho.springblog.config.auth;
 import com.cho.springblog.model.User;
 import com.cho.springblog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,6 +20,8 @@ public class PrincipalDetailService implements UserDetailsService {
         User principal = userRepository.findByUsername(username).orElseThrow(()->{
             return new UsernameNotFoundException("해당 사용자를 찾을 수 없습니다 : "+username);
         });
+
+        System.out.println("로그인이 왜 안되는거야 씨발");
         return new PrincipalDetail(principal); // 이것이 시큐리티 세션에 저장 아이디는 유저
     }
 }

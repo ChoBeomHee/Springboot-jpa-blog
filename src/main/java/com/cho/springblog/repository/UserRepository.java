@@ -20,6 +20,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // User login(String username, String password);
 
     Optional<User> findByUsername(String username); // 네이밍쿼리 SELECT * FROM user WHERE username = 1?;
-
-
 }
